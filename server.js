@@ -2,7 +2,7 @@ require("dotenv").config()
 const path = require("path")
 const express = require("express")
 const mongoose = require("mongoose")
-const PORT = process.env.PORT || 3000
+const PORT = process.env.PORT || 4000
 const app = express()
 const DB = "kvidjobs";
 // Remember to switch to the kvid business' live secret key in production. !IMPORTANT
@@ -13,9 +13,20 @@ app.use(express.json());//unpack JSON formatted payload / send res.json(payload,
 app.use(express.urlencoded({ extended: true })); //unpack urlEncoded payload 
 app.use(express.static( "./client/public")) //NO path,join() here. Only for GET req of index.html
 //Init Mongo Connection via Mongoose
-mongoose.connect("mongodb://localhost:27017/"+DB,{
-    connectTimeoutMS:10000
-});
+
+// For Deployed
+mongoose.connect(process.env.DB_CONNECTION,{ //don't add +DB on the end
+    useUnifiedTopology: true,
+   useNewUrlParser: true,
+//    useCreateIndex: true, deprecated
+//    useFindAndModify: false, deprecated
+   connectTimeoutMS: 10000
+})
+
+// for LOCAL
+// mongoose.connect("mongodb://localhost:27017/"+DB,{
+//     connectTimeoutMS:10000
+// });
 
 const jobList = [
     {
@@ -58,6 +69,7 @@ const Order = new mongoose.Schema(
         confirmationCode: String,
         completed: Boolean,
         paid: Boolean,
+        notes:String
     },
     {collection: "jobList"}
 )

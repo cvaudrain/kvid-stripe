@@ -25,6 +25,7 @@ form {
   form textarea {
     width: 100%;
     border: none;
+    border-bottom:1px solid rgb(184, 182, 182);
     padding: 4px;
     outline: none;
     font-size: 1.2em;
@@ -60,6 +61,16 @@ form {
    box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.8);
 }
 
+/* Forms and Divs */
+.short-form{
+  width:45vw
+}
+@media(max-width:576px){
+  .short-form{
+      width:75vw;
+  }
+}
+
 /*  */
   /* PROJECT-SPECIFIC */
 /*  */
@@ -69,7 +80,7 @@ background: url("/Images/br-desktop.png");
     background-attachment: fixed;
 }
 .main-content{
-    height:85vh;
+    /* height:100vh; */
     padding:50px;
 }
 @media(max-width:576px){
@@ -98,6 +109,12 @@ font-family: 'Libre Baskerville', serif;
   /* font-style: italic; */
 }
 
+.bold{
+  font-style: bold;
+}
+.italic{
+  font-style:italic;
+}
 /*  */
 /* COLORS */
 /* Colors. Backgrounds */
@@ -119,6 +136,10 @@ font-family: 'Libre Baskerville', serif;
 .br-gradient-aqua{
     background: linear-gradient(128deg, #77e0e7 37%, #5eb9c0 75%, #5fbdc3 1%);
 }
+.magenta-gradient{
+  background: rgb(223,75,128);
+background: linear-gradient(166deg, rgba(223,75,128,1) 10%, rgba(193,48,102,1) 41%, rgba(154,27,81,1) 77%);
+}
 /*  */
 /* colors.element color */
 .white{
@@ -129,6 +150,9 @@ font-family: 'Libre Baskerville', serif;
 }
 .aqua{
     color:#5eb9c0
+}
+.magenta{
+  color:rgba(154,27,81)
 }
 /*  */
   /* Positioning reusables*/
@@ -148,6 +172,9 @@ font-family: 'Libre Baskerville', serif;
   .pad-b{
     padding-bottom:100px;
   }
+  .pad-b-lg{
+    padding-bottom:12vh;
+  }
   .pad-b-sm{
     padding-bottom:25px;
   }
@@ -159,6 +186,10 @@ font-family: 'Libre Baskerville', serif;
   }
   .top-space{
     margin-top:12vh;
+    }
+    .top-space-lg{
+      margin-top:45vh;
+      
     }
     .top-space-sm{
       margin-top:5vh;

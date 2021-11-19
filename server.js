@@ -11,7 +11,7 @@ const stripe = require("stripe")(process.env.SECRET_KEY_TEST)
 //Init Express connection
 app.use(express.json());//unpack JSON formatted payload / send res.json(payload,(callbaback)=>{....})
 app.use(express.urlencoded({ extended: true })); //unpack urlEncoded payload 
-app.use(express.static( path.join(__dirname,"./client/public"))) //NO path,join() here. Only for GET req of index.html
+app.use(express.static(path.join(__dirname,"./Client/Public"))) //NO path,join() here. Only for GET req of index.html
 //Init Mongo Connection via Mongoose
 
 // For Deployed
@@ -77,7 +77,7 @@ let OrderModel = db.model("OrderModel",Order)
 
 app.get("/",(req,res)=>{
     console.log("Get Req Index /")
-    res.sendFile(__dirname + "./client/public/index.html")
+    res.sendFile(__dirname + "./Client/Public/index.html")
 })
 app.post("/api/clicktest",(req,res)=>{
     if(req.body.message !== undefined){

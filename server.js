@@ -77,7 +77,7 @@ let OrderModel = db.model("OrderModel",Order)
 
 app.get("/",(req,res)=>{
     console.log("Get Req Index /")
-    res.sendFile(path.join(__dirname,"./client/public/index.html"))
+    res.sendFile(__dirname + "./client/public/index.html")
 })
 app.post("/api/clicktest",(req,res)=>{
     if(req.body.message !== undefined){

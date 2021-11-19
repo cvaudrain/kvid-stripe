@@ -28,7 +28,9 @@
                     console.log(res)
                      window.location = res.data.url
                 })
-                .catch((err)=>console.log(err))
+                .catch((err)=>{
+                    alert("Error: Double check that confirmation code and try again.")
+                    console.log(err)})
                 //ANOTHER API CALL TO SEND DATA HERE, TO /api/init-stripe
                
             })
